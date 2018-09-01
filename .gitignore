@@ -62,7 +62,7 @@
 
  .idea/modules
 
- .idea/kotlinc.xml
+ .idea/**/kotlinc.xml
 
 
 
@@ -87,7 +87,7 @@ cmake-build-*/
 # IntelliJ
 
 out/
-.idea/
+.idea/*
 
 
 # mpeltonen/sbt-idea plugin
