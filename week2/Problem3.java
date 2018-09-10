@@ -19,7 +19,5 @@ class Problem3 {
         System.out.println("If an Object was falling for " + time
                 + " seconds. The Object would fall " + distance + " feet. ");
 
-
-
     }
 }
