@@ -9,7 +9,6 @@ class problem2 {
         int nickels;    //
 
         Scanner input = new Scanner(System.in);
-        int cents;
 
         System.out.print("Enter the number of quarters:  ");
         quarters = input.nextInt();
@@ -23,10 +22,13 @@ class problem2 {
         nickels = input.nextInt();
         input.nextLine();
 
-        cents = quarters + dimes + nickels;
+        int totalQuarters = (quarters * 25);
+        int totalDimes = (dimes * 10);
+        int totalNickels = (nickels * 5);
 
-        System.out.println();
-        System.out.println("Coins are worth " + cents + " cents");
+        int totalCents = totalQuarters + totalDimes + totalNickels;
+
+        System.out.println("Coins are worth " + totalCents + " cents");
         System.out.println();
 
     }
