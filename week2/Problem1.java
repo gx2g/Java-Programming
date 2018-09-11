@@ -12,25 +12,25 @@ class Problem1 {
 
     public static void main(String[] args) {
 
-        /* create object of Scanner */
+        // create object of Scanner
         Scanner input = new Scanner(System.in);
 
-        /* Prompt User to input integer */
+        // Prompt User to input integer
         System.out.print("Input 1st integer: ");
 
-        /* create variable = user input */
+        // create variable = user input
         int firstInt = input.nextInt();
 
-        /* Prompt User to input integer */
+        // Prompt User to input integer
         System.out.print("Input 2nd integer: ");
 
-        /* create variable = user input */
+        // create variable = user input
         int secondInt = input.nextInt();
 
         System.out.println();
         System.out.println("******************************* I LOVE ***");
 
-        /* print out sum, product, average, remainder */
+        // print out sum, product, average, remainder
         System.out.printf(" (Sum) of two integers: %d%n", firstInt + secondInt);
         System.out.printf(" (Product) of two integers: %d%n", firstInt * secondInt);
         System.out.printf(" (Average) of two integers: %d%n", firstInt + secondInt / 2);
@@ -38,6 +38,10 @@ class Problem1 {
 
         System.out.println("********************************** JAVA **");
         System.out.println();
+
+
+        System.exit(0);
+
     }
 
 }
