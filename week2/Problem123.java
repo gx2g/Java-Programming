@@ -1,7 +1,10 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by Fernflower decompiler)
-//
+//****************************************************************
+
+/*     Program Author:    Robert Resendez                       */
+/*         Class Name:    CO-SCI 290 Java Programming           */
+/*      Course Lesson:    Problem 1 - Week 1, 2                 */
+
+//****************************************************************
 
 import java.util.Scanner;
 
@@ -11,6 +14,7 @@ public class Problem123 {
         problemOne();
         problemTwo();
         problemThree();
+
         System.exit(0);
     }
 
