@@ -27,13 +27,17 @@ class Problem1 {
         /* create variable = user input */
         int secondInt = input.nextInt();
 
-        /* print out sum, product, average, remainder */
+        System.out.println();
         System.out.println("******************************* I LOVE ***");
+
+        /* print out sum, product, average, remainder */
         System.out.printf(" (Sum) of two integers: %d%n", firstInt + secondInt);
         System.out.printf(" (Product) of two integers: %d%n", firstInt * secondInt);
         System.out.printf(" (Average) of two integers: %d%n", firstInt + secondInt / 2);
         System.out.printf(" (Remainder) of two integers: %d%n", firstInt % secondInt);
+
         System.out.println("********************************** JAVA **");
+        System.out.println();
     }
 
 }
