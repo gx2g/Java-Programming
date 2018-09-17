@@ -53,6 +53,5 @@ class Problem2 {
 
         System.out.println("********************************* java **");
         System.out.println();
-
     }
 }

@@ -13,7 +13,7 @@ class Problem3 {
     public static void main(String[] args) {
 
         // Variable Decloration
-        int acceleration = 32;
+        final int ACCELERATION = 32;
 
         // Create a Scanner Object
         Scanner input = new Scanner(System.in);
@@ -25,17 +25,16 @@ class Problem3 {
         int time = input.nextInt();
 
         // distance variable = math formula to calulate free fall distance
-        int distance = acceleration * (time * time) / 2;
+        int distance = ACCELERATION * (time * time) / 2;
 
         System.out.println();
         System.out.println("***************************** I love ****");
 
         // print out statement using + concat to break up statement
         System.out.println("If an Object was falling for " + time + " seconds.\n"
-                              + "The Object would fall " + distance + " feet. ");
+                + "The Object would fall " + distance + " feet. ");
 
         System.out.println("********************************* java **");
         System.out.println();
-
     }
 }

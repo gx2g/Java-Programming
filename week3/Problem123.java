@@ -1,8 +1,9 @@
 //****************************************************************
 
-/*     Program Author:    Robert Resendez                       */
+/*          CopyRight:    Robert Resendez                       */
 /*         Class Name:    CO-SCI 290 Java Programming           */
-/*      Course Lesson:    Problem 1 - Week 1, 2                 */
+/*      Course Lesson:    Problem 1,2,3 - Week 1,2              */
+/*               Note:    All Problems Combined using Methods   */
 
 //****************************************************************
 
@@ -11,26 +12,29 @@ import java.util.Scanner;
 public class Problem123 {
 
     public static void main(String[] args) {
-        problemOne();
-        problemTwo();
-        problemThree();
+
+        ProblemOne(); // calling method 1
+        ProblemTwo(); // calling method 2
+        ProblemThree(); // calling method 3
 
         System.exit(0);
-    }
 
-    public static void problemOne() {
+    } // main method
+
+    // Problem 1 Method
+    public static void ProblemOne() {
 
         // create object of Scanner
         Scanner input = new Scanner(System.in);
 
         // Prompt User to input integer
-        System.out.print("Input 1st integer: ");
+        System.out.print("Input first number: ");
 
         // create variable = user input
         int firstInt = input.nextInt();
 
         // Prompt User to input integer
-        System.out.print("Input 2nd integer: ");
+        System.out.print("Input second number: ");
 
         // create variable = user input
         int secondInt = input.nextInt();
@@ -39,17 +43,18 @@ public class Problem123 {
         System.out.println("******************************* I LOVE ***");
 
         // print out sum, product, average, remainder
-        System.out.printf(" (Sum) of two integers: %d%n", firstInt + secondInt);
-        System.out.printf(" (Product) of two integers: %d%n", firstInt * secondInt);
-        System.out.printf(" (Average) of two integers: %d%n", firstInt + secondInt / 2);
-        System.out.printf(" (Remainder) of two integers: %d%n", firstInt % secondInt);
+        System.out.println(firstInt + " + " + secondInt + " = " + firstInt + secondInt);
+        System.out.println(firstInt + " * " + secondInt + " = " + firstInt * secondInt);
+        System.out.println(firstInt + " / " + secondInt + " = " + firstInt / secondInt);
+        System.out.println(firstInt + " % " + secondInt + " = " + firstInt % secondInt);
 
         System.out.println("********************************** JAVA **");
         System.out.println();
 
     }
 
-    public static void problemTwo() {
+    // Problem 2 Method
+    public static void ProblemTwo() {
 
         // variable declaration
         int quarters;   // variable quarters
@@ -96,10 +101,11 @@ public class Problem123 {
 
     }
 
-    public static void problemThree() {
+    // Problem 3 Method
+    public static void ProblemThree() {
 
         // Variable Decloration
-        int acceleration = 32;
+        final int ACCELERATION = 32;
 
         // Create a Scanner Object
         Scanner input = new Scanner(System.in);
@@ -111,7 +117,7 @@ public class Problem123 {
         int time = input.nextInt();
 
         // distance variable = math formula to calulate free fall distance
-        int distance = acceleration * (time * time) / 2;
+        int distance = ACCELERATION * (time * time) / 2;
 
         System.out.println();
         System.out.println("***************************** I love ****");

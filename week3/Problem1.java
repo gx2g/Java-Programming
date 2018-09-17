@@ -16,13 +16,13 @@ class Problem1 {
         Scanner input = new Scanner(System.in);
 
         // Prompt User to input integer
-        System.out.print("Input 1st integer: ");
+        System.out.print("Input first number: ");
 
         // create variable = user input
         int firstInt = input.nextInt();
 
         // Prompt User to input integer
-        System.out.print("Input 2nd integer: ");
+        System.out.print("Input second number: ");
 
         // create variable = user input
         int secondInt = input.nextInt();
@@ -31,16 +31,13 @@ class Problem1 {
         System.out.println("******************************* I LOVE ***");
 
         // print out sum, product, average, remainder
-        System.out.printf(" (Sum) of two integers: %d%n", firstInt + secondInt);
-        System.out.printf(" (Product) of two integers: %d%n", firstInt * secondInt);
-        System.out.printf(" (Average) of two integers: %d%n", firstInt + secondInt / 2);
-        System.out.printf(" (Remainder) of two integers: %d%n", firstInt % secondInt);
+        System.out.println(firstInt + " + " + secondInt + " = " + firstInt + secondInt);
+        System.out.println(firstInt + " * " + secondInt + " = " + firstInt * secondInt);
+        System.out.println(firstInt + " / " + secondInt + " = " + firstInt / secondInt);
+        System.out.println(firstInt + " % " + secondInt + " = " + firstInt % secondInt);
 
         System.out.println("********************************** JAVA **");
         System.out.println();
-
-
-        System.exit(0);
 
     }
 
