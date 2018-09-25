@@ -1,8 +1,14 @@
-/**
- * A program that prompts the user to enter a phone number as a string. The
- * input number may contain letters. The program translates a letter
- * (upper- or lowercase) to a digit and leaves all other characters intact.
- */
+//****************************************************************
+
+/*     Program Author:    Robert Resendez                       */
+/*         Class Name:    CO-SCI 290 Java Programming           */
+/*      Course Lesson:    Week4 Project 1 Phone.doc             */
+/*        Discription:    Program that takes in input from      */
+/*                        user to simulate a old style phone    */
+/*                        turns letters into numbers like a     */
+/*                        keypad                                */
+
+//****************************************************************
 
 import java.util.Scanner;
 
@@ -37,7 +43,7 @@ public class PhoneKeypad {
     public static void main(String[] args) {
 
         // Promt user response for data input
-        System.out.print("Please Enter the Phone Number (Please Enter the Letters in Capital): ");
+        System.out.print("(Please Enter the Letters in Capital): ");
 
         // create a scanner object
         Scanner keyboard = new Scanner(System.in);
