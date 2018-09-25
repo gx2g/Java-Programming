@@ -1,3 +1,6 @@
+import java.util.Scanner;
+
+
 public class AnalyzeNumbers {
     public static void main(String[] args) {
         java.util.Scanner input = new java.util.Scanner(System.in);
@@ -20,7 +23,6 @@ public class AnalyzeNumbers {
                 count++;
 
         System.out.println("Average is " + average);
-        System.out.println("Number of elements above the average is "
-                + count);
+        System.out.println("Number of elements above the average is " + count);
     }
 }
