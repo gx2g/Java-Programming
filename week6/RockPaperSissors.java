@@ -112,7 +112,7 @@ public class RockPaperSissors {
 
         return comp;
     }
-
+    // user input method
     private static char selection() {
         char user;
 
@@ -120,7 +120,7 @@ public class RockPaperSissors {
 
             System.out.print("Enter Choice Rock 'r',Paper 'p', Scissors 's' :");
 
-            user=sc.next(".").charAt(0);
+            user = sc.next(".").charAt(0);
 
             if( user != 'r' && user != 'p' && user != 's') {
                 System.out.println("** Invalid Input **");
