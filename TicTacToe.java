@@ -1,131 +1,200 @@
-import java.util.Scanner;
+import java.util.*;
 
-public class TicTacToe {
-    private static char [ ] [ ] ttt = new char [4] [4] ;
-    private static int gameNum = 1;
+//Game class
+class TicTacToe
+{
+    Scanner in = new Scanner(System.in);
 
-
-    public static void main(String[] args)
-    {//MAIN OPEN
-        System.out.println("Welcome to play the game of guessing who is winning!");
-        Scanner scan = new Scanner (System.in);
-        String gameString;
-        System.out.println("Please enter your game " + gameNum + " board (* to exit) > ");
-        gameString = scan.nextLine();
-        int n;
-
-        while (!gameString.equals("*"))
-        {//WHILE LOOP OPEN
-            System.out.println("Your game " + gameNum + " is as follows: ");
-            n = 0;
-            ttt = new char [4][4];
-            for(int i = 1 ; i < 4; i++)
-            {//FOR LOOP OPEN
-                for(int j = 1; j < 4; j++)
-                {//NESTED FOR LOOP OPEN
-                    ttt [i][j]= gameString.charAt(n);
-                    n++;
-                }//NESTED FOR LOOP CLOSED
-            }//FOR LOOP CLOSED
-            System.out.println(ttt[1][1] + "" + ttt[1][2] + "" + ttt[1][3]);
-            System.out.println(ttt[2][1] + "" + ttt[2][2] + "" + ttt[2][3]);
-            System.out.println(ttt[3][1] + "" + ttt[3][2] + "" + ttt[3][3]);
-
-            if(winRow1('O' , ttt))
-                System.out.println("Your game " + gameNum + ": O won the game by row 1");
-            if(winRow2('O' , ttt))
-                System.out.println("Your game " + gameNum + ": O won the game by row 2");
-            if(winRow3('O' , ttt))
-                System.out.println("Your game " + gameNum + ": O won the game by row 3");
-            if(winRow1('X' , ttt))
-                System.out.println("Your game " + gameNum + ": X won the game by row 1");
-            if(winRow2('X' , ttt))
-                System.out.println("Your game " + gameNum + ": X won the game by row 2");
-            if(winRow3('X' , ttt))
-                System.out.println("Your game " + gameNum + ": X won the game by row 3");
-            if(winColumn1('O' , ttt))
-                System.out.println("Your game " + gameNum + ": O won the game by Column 1");
-            if(winColumn2('O' , ttt))
-                System.out.println("Your game " + gameNum + ": O won the game by Column 2");
-            if(winColumn3('O' , ttt))
-                System.out.println("Your game " + gameNum + ": O won the game by Column 3");
-            if(winColumn1('X' , ttt))
-                System.out.println("Your game " + gameNum + ": X won the game by Column 1");
-            if(winColumn2('X' , ttt))
-                System.out.println("Your game " + gameNum + ": X won the game by Column 2");
-            if(winColumn3('X' , ttt))
-                System.out.println("Your game " + gameNum + ": X won the game by Column 3");
-            if(winDiagonal1('O' , ttt))
-                System.out.println("Your game " + gameNum + ": O won the game by diagonal 1");
-            if(winDiagonal1('X' , ttt))
-                System.out.println("Your game " + gameNum + ": X won the game by diagonal 1");
-            if(winDiagonal2('O' , ttt))
-                System.out.println("Your game " + gameNum + ": O won the game by diagonal 2");
-            if(winDiagonal2('X' , ttt))
-                System.out.println("Your game " + gameNum + ": X won the game by diagonal 2");
-
-            gameNum++;
-
-            System.out.print("Please enter your game " + gameNum + " board (* to exit) > ");
-            gameString = scan.nextLine();
-
-
-
-
-        }//WHILE LOOP CLOSED
-    }//MAIN CLOSED
-
-    public static boolean winDiagonal1( char player, char a [][])
+    //Playing game function
+    public void play()
     {
-        if ( ttt[1][1] == player && ttt[2][2] == player && ttt[3][3] == player )
-            return true;
-        return false;
+        Scanner in = new Scanner(System.in);
+
+        //For holding board
+        char[][] board = new char[3][3];
+
+        int n = 1;
+        //Initializing with spaces
+        for(int i=0; i<3; i++)
+        {
+            for(int j=0; j<3; j++)
+            {
+                board[i][j] = (char)(n++ + '0');
+            }
+        }
+
+        //Displaying board
+        displayBoard(board);
+
+        //Iterate either game is Tie or there is a win
+        while(true)
+        {
+            //Player plays round
+            playerPlays(board, 'X');
+
+            //Displaying board
+            displayBoard(board);
+
+            //Checking for win
+            if(checkWin(board, 'X'))
+            {
+                System.out.println("\n Player X Wins \n");
+                System.exit(0);
+            }
+
+            //Checking for tie
+            if(checkTie(board))
+            {
+                System.out.println("\n Tie game \n");
+                System.exit(0);
+            }
+
+            //Player plays round
+            playerPlays(board, 'O');
+
+            //Displaying board
+            displayBoard(board);
+
+            //Checking for win
+            if(checkWin(board, 'O'))
+            {
+                System.out.println("\n Player O Wins \n");
+                System.exit(0);
+            }
+
+            //Checking for tie
+            if(checkTie(board))
+            {
+                System.out.println("Tie game");
+                System.exit(0);
+            }
+        }
     }
 
-    public static boolean winDiagonal2 (char player, char a [][])
+    // Prompt the user for row & column index. Continue asking until an empty cell is selected. set the cell to 'O'
+    public void playerPlays(char [][] board, char symbol)
     {
-        if( ttt[1][3] == player && ttt[2][2] == player && ttt[3][1] == player )
-            return true;
-        return false;
-    }
-    public static boolean winRow1 (char player, char a [][])
-    {
-        if (ttt[1][1] == player && ttt[1][2] == player && ttt[1][3] == player)
-            return true;
-        return false;
+        int row=0, col=0, pos;
+
+        //Scanner class object
+        Scanner reader = new Scanner(System.in);
+
+        //Prompting user for position
+        System.out.print("\n What Square Player " + symbol + "? ");
+        pos = reader.nextInt();
+
+        //Mapping position to row and col
+        switch(pos)
+        {
+            case 1:   row=0; col=0; break;
+            case 2:   row=0; col=1; break;
+            case 3:   row=0; col=2; break;
+            case 4:   row=1; col=0; break;
+            case 5:   row=1; col=1; break;
+            case 6:   row=1; col=2; break;
+            case 7:   row=2; col=0; break;
+            case 8:   row=2; col=1; break;
+            case 9:   row=2; col=2; break;
+        }
+
+        //Validating position
+        while(row < 0 || row > 2 || col < 0 || col > 2)
+        {
+            //Re-prompting user
+            System.out.print("\n Invalid location!!! Re-Enter row, column pair: ");
+            row = reader.nextInt();
+            col = reader.nextInt();
+        }
+
+        //If cell is already filled
+        while(board[row][col] == 'X' || board[row][col] == 'O')
+        {
+            //Re-prompting user
+            System.out.print("\n Cell already filled!!! Re-Enter row, column pair: ");
+            row = reader.nextInt();
+            col = reader.nextInt();
+        }
+
+        //Storing in cell
+        board[row][col] = symbol;
     }
 
-    public static boolean winRow2 (char player, char a [][])
+    // Check by row, column, and diagonals
+    public boolean checkWin( char[][] board, char ch)
     {
-        if (ttt[2][1] == player && ttt[2][2] == player && ttt[2][3] == player)
-            return true;
-        return false;
+        //Check by row, column and then both the diagonals
+        return (board[0][0] == ch && board[0][1] == ch && board[0][2] == ch) ||
+                (board[1][0] == ch && board[1][1] == ch && board[1][2] == ch) ||
+                (board[2][0] == ch && board[2][1] == ch && board[2][2] == ch) ||
+                (board[0][0] == ch && board[1][0] == ch && board[2][0] == ch) ||
+                (board[0][1] == ch && board[1][1] == ch && board[2][1] == ch) ||
+                (board[0][2] == ch && board[1][2] == ch && board[2][2] == ch) ||
+                (board[0][0] == ch && board[1][1] == ch && board[2][2] == ch) ||
+                (board[0][2] == ch && board[1][1] == ch && board[2][0] == ch);
     }
 
-    public static boolean winRow3 (char player, char a [][])
+
+    // check for tie. If there no empty cells, then it is a tie
+    public boolean checkTie( char [][] board)
     {
-        if (ttt[3][1] == player && ttt[3][2] == player && ttt[3][3] == player)
-            return true;
-        return false;
-    }
-    public static boolean winColumn1 (char player, char a [][])
-    {
-        if (ttt[1][1] == player && ttt[2][1] == player && ttt [3][1] == player)
-            return true;
-        return false;
+        int i, j;
+
+        //Outer loop for rows
+        for(i=0; i<3; i++)
+        {
+            //Inner loop for columns
+            for(j=0; j<3; j++)
+            {
+                //Board is not Full
+                if(board[i][j] != 'X' || board[i][j] != 'O')
+                    return false;
+            }
+        }
+
+        //Board Full
+        return true;
     }
 
-    public static boolean winColumn2 (char player, char a [][])
+    // Display the board
+    public void displayBoard( char [][] board)
     {
-        if (ttt[1][2] == player && ttt[2][2] == player && ttt [3][2] == player)
-            return true;
-        return false;
+        int i, j;
+
+        System.out.print("\n\n The board is: \n");
+
+        System.out.print("\n |---|---|---| \n");
+
+        //Outer loop for rows
+        for(i=0; i<3; i++)
+        {
+            //Inner loop for columns
+            for(j=0; j<3; j++)
+            {
+                //Printing character
+                System.out.print(" | " + board[i][j]);
+            }
+
+            System.out.print(" |");
+
+            //Printing footer
+            System.out.print("\n |---|---|---| \n");
+        }
+
+        System.out.println("\n");
+    }
+}
+
+//Driver class
+class TicTacToePlay
+{
+    //Main method
+    public static void main(String args[])
+    {
+        //Creating object
+        TicTacToe playGame = new TicTacToe();
+
+        //Playing game
+        playGame.play();
     }
 
-    public static boolean winColumn3 (char player, char a [][])
-    {
-        if (ttt[1][3] == player && ttt[2][3] == player && ttt [3][3] == player)
-            return true;
-        return false;
-    }
 }
