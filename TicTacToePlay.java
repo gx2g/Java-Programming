@@ -1,3 +1,15 @@
+
+//****************************************************************
+
+/*     Program Author:    Robert Resendez                       */
+/*         Class Name:    CO-SCI 290 Java Programming           */
+/*      Course Lesson:    TicTacToePlay.java                    */
+/*        Discription:    Tic Tac Toe Game                      */
+
+//****************************************************************
+
+
+
 import java.util.*;
 
 // Driver Class
@@ -170,11 +182,14 @@ class TicTacToe {
         System.out.print("\n |---|---|---| \n");
 
         // Outer loop for rows
-        for(i=0; i<3; i++) {
+        for(i=0; i<3; i++)  {
+
             // Inner loop for columns
             for(j=0; j<3; j++) {
+
                 // Printing character
                 System.out.print(" | " + board[i][j]);
+
             }
 
             System.out.print(" |");
@@ -183,6 +198,6 @@ class TicTacToe {
             System.out.print("\n |---|---|---| \n");
         }
 
-        System.out.println("\n");
+        System.out.println(" \n ");
     }
 }

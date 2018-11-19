@@ -8,19 +8,17 @@ public class testStudent {
          s2.setGpa(3.9);
 
          // prints 0 because it's nto definded yet
-         System.out.println("gpa of s1:" + s1.getGpa());
+         System.out.println("gpa of s1: " + s1.getGpa());
 
          // quick way to do it with a function below
          System.out.println(s2.toString());
 
          // writing them out one by one
-         System.out.println("gpa of s2:" + s2.getGpa());
-         System.out.println("s2 name:" + s2.getName());
-         System.out.println("s2 name:" + s2.getID());
+         System.out.println("gpa of s2: " + s2.getGpa());
+         System.out.println("s2 name: " + s2.getName());
+         System.out.println("s2 name: " + s2.getID());
 
-
-
-        // create an array object of 30
+        // create an array object of 10
         Circle[] arrayCircle = new Circle[10];
 
         // randomly print out the arrayCicle with different values
@@ -29,7 +27,6 @@ public class testStudent {
             arrayCircle[i] = new Circle(r);
             System.out.println(arrayCircle[i].toString());
         }
-
 
         // Circle function calls
         Circle c1 = new Circle(1.0);
@@ -47,8 +44,8 @@ class Student {
     private double gpa;
 
     // empty constructor
-
     public Student(){}
+
     // overload constructor
     public Student(String name, String id, double gpa) {
 
@@ -67,13 +64,8 @@ class Student {
     }
 
     public void setGpa(double gpa) {
-
-        if( gpa >= 0 ) {
-            this.gpa = gpa;
-        }
-        else{
-            System.out.println("GPA not negitive");
-        }
+        if( gpa >= 0 ) { this.gpa = gpa; }
+        else{ System.out.println("GPA not negitive"); }
     }
 
     public String getName() {
@@ -97,6 +89,7 @@ class Student {
 
 class Circle {
 
+    // variable declaration double radius
     private  double radius;
 
     public Circle(double radius) {
