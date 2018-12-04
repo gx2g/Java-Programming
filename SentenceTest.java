@@ -8,7 +8,9 @@ public class SentenceTest {
         String s = scan.nextLine();
         System.out.println("The sentence to all capital letters: "+s.toUpperCase());
         System.out.println("The sentence to all lower letters: "+s.toLowerCase());
+
         String newString = "";
+
         for(int i=0; i<s.length(); i++){
             char ch = s.charAt(i);
             if(Character.isUpperCase(ch)){
@@ -18,7 +20,8 @@ public class SentenceTest {
                 newString = newString + Character.toUpperCase(ch);
             }
         }
-        System.out.println("The each character if it is upper to lower and vice versa: "+newString);
+
+        System.out.println("The each character if it is upper to lower and vice versa: " + newString);
     }
 
 }
